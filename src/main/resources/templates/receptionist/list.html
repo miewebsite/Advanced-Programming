@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.altraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{master/masterlayout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<th:block layout:fragment="content">
+<table class="table table-hover" id="receptionist-table">
+    <thead class="table-dark">
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Receptionist Name</th>
+        <th scope="col">Receptionist Qualification</th>
+        <th scope="col">Receptionist Salary</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="receptionist,iter:${receptionist}">
+        <th scope="row" th:text="${iter.count}"></th>
+        <td th:text="${receptionist.name}"></td>
+        <td th:text="${receptionist.qualification}"></td>
+        <td th:text="${receptionist.salary}"></td>
+        <td><a th:href="@{/templates/receptionist/delete/__${receptionist.receptionistId}__}" class="btn btn-outline-danger">Delete</a></td>
+        <td><a th:href="@{/templates/receptionist/edit/__${receptionist.receptionistId}__}" class="btn btn-outline-danger">Update</a></td>
+    </tr>
+    </tbody>
+</table>
+
+
+
+</th:block>
+
+<th:block layout:fragment="footer"></th:block>
+
+</body>
+</html>

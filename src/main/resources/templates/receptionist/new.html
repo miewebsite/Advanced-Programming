@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.altraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{master/masterlayout}">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<th:block layout:fragment="content">
+  <form th:action="@{/templates/receptionist/new}" th:object="${receptionist}" method="post">
+    <fieldset>
+      <legend>Receptionist Registration Form</legend>
+      <input type="hidden" th:value="${receptionist.receptionistId}" name="receptionistId">
+
+      <div class="form-group">
+        <label for="name">Receptionist Name</label>
+        <input type="text" class="form-control" id="name" th:value="${receptionist.name}" name="name">
+      </div>
+
+      <div class="form-group">
+        <label for="qualification">Receptionist Qualification</label>
+        <input type="text" class="form-control" id="qualification" name="qualification" th:value="${receptionist.qualification}">
+      </div>
+      <div class="form-group">
+        <label for="age">Receptionist Salary</label>
+        <input type="text" class="form-control" id="age" name="age" th:value="${receptionist.salary}">
+      </div>
+     <div>
+        <a href="#" class="btn btn-outline-warning">Cancel</a>
+        <button class="btn btn-outline-success" type="submit">Save</button>
+
+      </div>
+
+
+
+    </fieldset>
+  </form>
+
+
+
+</th:block>
+
+<th:block layout:fragment="footer"></th:block>
+
+</body>
+</html>

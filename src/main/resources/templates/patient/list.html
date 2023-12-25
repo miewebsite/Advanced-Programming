@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.altraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{master/masterlayout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<th:block layout:fragment="content">
+<table class="table table-hover" id="patient-table">
+    <thead class="table-dark">
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Patient Name</th>
+        <th scope="col">Patient Gender</th>
+        <th scope="col">Patient Age</th>
+        <th scope="col">Patient Email</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="patient,iter:${patients}">
+        <th scope="row" th:text="${iter.count}"></th>
+        <td th:text="${patient.name}"></td>
+        <td th:text="${patient.gender}"></td>
+        <td th:text="${patient.age}"></td>
+        <td th:text="${patient.email}"></td>
+        <td><a th:href="@{/templates/patient/delete/__${patient.patientId}__}" class="btn btn-outline-danger">Delete</a></td>
+        <td><a th:href="@{/templates/patient/edit/__${patient.patientId}__}" class="btn btn-outline-danger">Update</a></td>
+    </tr>
+    </tbody>
+</table>
+
+
+
+</th:block>
+
+<th:block layout:fragment="footer"></th:block>
+
+</body>
+</html>
