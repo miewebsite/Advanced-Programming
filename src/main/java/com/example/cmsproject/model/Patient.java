@@ -27,4 +27,8 @@ public class Patient {
         this.age = age;
         this.email = email;
     }
+
+    @OneToMany(mappedBy = "receptionist", cascade = 
+CascadeType.PERSIST)
+@JsonIdentityInfo(generator=ObjectIdGenerators.IntSequenceGenerator.class,property="@id", scope = PAtient.class)
 }
