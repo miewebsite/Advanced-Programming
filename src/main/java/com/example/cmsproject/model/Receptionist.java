@@ -26,4 +26,8 @@ public class Receptionist {
         this.qualification = qualification;
         this.salary = salary;
     }
+    @OneToMany(mappedBy = "receptionist", cascade = 
+CascadeType.PERSIST)
+@JsonIdentityInfo(generator=ObjectIdGenerators.IntSequenceGenerator
+.class,property="@id", scope = Patient.class)
 }
